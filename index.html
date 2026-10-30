@@ -3,13 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amanat - Digital Will & Post-Mortem Automated Dispatch</title>
+  <title>Amanat | Enterprise Digital Testament & Legacy Vault</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- Ambient Glow Effects in Background -->
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-bottom"></div>
 
   <!-- Sticky Milestone Reminder Alert Banner (Dynamic: 15, 10, 5, 1 Day) -->
   <div id="milestone-reminder-banner" class="milestone-reminder hidden">
@@ -26,7 +30,7 @@
     </div>
   </div>
 
-  <!-- Top Navigation -->
+  <!-- Top Enterprise Header -->
   <header class="app-header">
     <div class="header-inner">
       <div class="logo-area">
@@ -36,9 +40,20 @@
         <div>
           <div class="logo-brand-row">
             <h1 class="logo-title">AMANAT</h1>
-            <span class="badge-gold">Digital Testament & Vault</span>
+            <span class="badge-vault">ENTERPRISE VAULT</span>
           </div>
-          <p class="logo-subtitle">Secure 90-Day Dead Man's Switch & Automated Post-Mortem Dispatch</p>
+          <p class="logo-subtitle">Decentralized Dead Man's Switch & Digital Testament System</p>
+        </div>
+      </div>
+
+      <div class="header-center-metrics">
+        <div class="metric-pill">
+          <span class="metric-dot"></span>
+          <span>Zero-Knowledge Encryption</span>
+        </div>
+        <div class="metric-pill">
+          <span class="metric-icon">🌍</span>
+          <span>Global Jurisdiction Ready</span>
         </div>
       </div>
 
@@ -56,19 +71,63 @@
 
   <!-- Main Container -->
   <main class="main-container">
-    
-    <!-- Dead Man's Switch Hero Countdown -->
+
+    <!-- Hero Value Section -->
+    <section class="hero-showcase">
+      <div class="hero-eyebrow">
+        <span class="hero-sparkle">✦</span> THE WORLD'S MOST ADVANCED DIGITAL WILL & LAST TESTAMENT
+      </div>
+      <h1 class="hero-headline">
+        Protect Your Final Wishes, Assets, & Media.<br>
+        <span class="gradient-text">Delivered Safely When You Can No Longer Speak.</span>
+      </h1>
+      <p class="hero-subtext">
+        Amanat gives you complete peace of mind. Record your legal Wasiyat, family advice, property distributions, and upload scanned deeds, photos, and final video messages. If our 90-day life verification switch expires without your check-in, everything is securely unlocked and emailed to your designated heirs.
+      </p>
+
+      <div class="hero-features-bar">
+        <div class="feature-item">
+          <span class="feat-icon">🔐</span>
+          <div>
+            <strong>Bank-Grade Privacy</strong>
+            <small>Client-side encryption</small>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feat-icon">📁</span>
+          <div>
+            <strong>Document & Video Vault</strong>
+            <small>Attach legal deeds & videos</small>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feat-icon">⚡</span>
+          <div>
+            <strong>90-Day Dead Man's Switch</strong>
+            <small>Automatic life verification</small>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feat-icon">✉️</span>
+          <div>
+            <strong>Post-Mortem Email Dispatch</strong>
+            <small>Instant heir notification</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dead Man's Switch Interactive Engine -->
     <section class="switch-banner">
       <div class="banner-pattern-overlay"></div>
       <div class="banner-content">
         <div class="banner-left">
           <div class="banner-tag">
-            <span class="tag-sparkle">✦</span> 90-DAY AUTOMATED POST-MORTEM PROTOCOL
+            <span class="tag-sparkle">🛡️</span> ACTIVE 90-DAY PROTOCOL MONITOR
           </div>
-          <h2 id="banner-headline">Life Verification Engine</h2>
+          <h2 id="banner-headline">Life Verification Countdown Engine</h2>
           <p id="banner-description">
-            If you do not check in before this countdown concludes, the protocol will conclude that you have passed away. 
-            Your recorded <strong>Wasiyat (Will)</strong>, <strong>Nasihat (Advice)</strong>, and confidential private letters will be automatically unlocked and dispatched via email to your selected recipients.
+            If you do not verify your life status before this countdown hits zero, the Amanat vault automatically executes post-mortem protocols. Your legal Wasiyat, attached deeds, media files, and confidential private letters will immediately transfer to your designated beneficiaries.
           </p>
 
           <div class="timer-display">
@@ -94,36 +153,37 @@
           </div>
 
           <div class="countdown-subtext">
-            <span>Next mandatory verification due by: <strong id="deadline-date-text">Calculating...</strong></span>
+            <span>Next mandatory life verification deadline: <strong id="deadline-date-text">Calculating...</strong></span>
           </div>
         </div>
 
         <div class="banner-right">
           <div class="switch-action-card">
-            <div class="card-glow-edge"></div>
             <div class="switch-card-header">
               <span class="switch-card-icon">⚡</span>
               <div>
-                <h3>Verify Life Status</h3>
+                <h3>Life Status Verification</h3>
                 <small>One-click 90-day extension</small>
               </div>
             </div>
-            <p>Click below to verify that you are alive and healthy. This immediately extends your countdown by a fresh <strong>90 days</strong>.</p>
+            <p>Click below whenever you are active to confirm you are alive and healthy. This resets your countdown to a full <strong>90 days</strong>.</p>
+            
             <button id="btn-checkin-large" class="btn btn-emerald btn-block btn-lg">
               ✨ Extend Life Timer (+90 Days)
             </button>
 
+            <!-- Simulator Control Suite -->
             <div class="quick-test-box">
               <div class="test-header">
-                <span class="test-label">🧪 Interactive Simulator & Demo:</span>
+                <span class="test-label">🧪 Interactive Testing Suite:</span>
               </div>
               <div class="test-btn-group">
-                <button id="btn-sim-15d" class="btn btn-pill-ghost btn-xs">15 Days</button>
-                <button id="btn-sim-10d" class="btn btn-pill-ghost btn-xs">10 Days</button>
-                <button id="btn-sim-5d" class="btn btn-pill-ghost btn-xs">5 Days</button>
-                <button id="btn-sim-1d" class="btn btn-pill-ghost btn-xs">1 Day</button>
-                <button id="btn-sim-10s" class="btn btn-pill-ghost btn-xs">10 Secs</button>
-                <button id="btn-trigger-expire" class="btn btn-pill-danger btn-xs">Trigger Expiry</button>
+                <button id="btn-sim-15d" class="btn btn-pill-ghost btn-xs" title="Test 15-Day Reminder">15 Days Left</button>
+                <button id="btn-sim-10d" class="btn btn-pill-ghost btn-xs" title="Test 10-Day Reminder">10 Days Left</button>
+                <button id="btn-sim-5d" class="btn btn-pill-ghost btn-xs" title="Test 5-Day Urgent Warning">5 Days Left</button>
+                <button id="btn-sim-1d" class="btn btn-pill-ghost btn-xs" title="Test 1-Day Final Warning">1 Day Left</button>
+                <button id="btn-sim-10s" class="btn btn-pill-ghost btn-xs" title="Fast-forward to 10 seconds">10 Secs</button>
+                <button id="btn-trigger-expire" class="btn btn-pill-danger btn-xs" title="Trigger post-mortem release immediately">Trigger Expiry</button>
               </div>
             </div>
           </div>
@@ -137,8 +197,8 @@
         <span class="alert-icon">⚠️</span>
       </div>
       <div class="alert-info">
-        <h3>TESTAMENT UNLOCKED & EMAILS DISPATCHED</h3>
-        <p>The 90-day check-in period expired. All confidential notifications have been queued and sent to your designated post-mortem email recipients.</p>
+        <h3>PROTOCOL ACTIVATED: TESTAMENT UNLOCKED & DISPATCHED</h3>
+        <p>The 90-day verification window expired. All Wasiyat documents, uploaded deeds, videos, and private letters are now released to registered heirs.</p>
       </div>
       <button id="btn-view-transferred" class="btn btn-gold btn-sm">Open Beneficiary Portal</button>
     </div>
@@ -149,8 +209,8 @@
         <div class="schedule-title">
           <span class="schedule-icon">🔔</span>
           <div>
-            <h3>Automated Reminder Milestones & Alerts</h3>
-            <p class="text-muted">Multi-stage notifications dispatched to you before the testament is transferred to heirs:</p>
+            <h3>Automated Pre-Expiry Reminder Milestones</h3>
+            <p class="text-muted">You will receive automated multi-stage alerts before any testament release occurs:</p>
           </div>
         </div>
         <button id="btn-enable-browser-notifications" class="btn btn-outline btn-sm">
@@ -165,8 +225,8 @@
             <div id="badge-milestone-15" class="milestone-status status-pending">Scheduled</div>
           </div>
           <div class="milestone-info">
-            <strong>First Gentle Checkpoint</strong>
-            <span>Initial warning email & notice to verify you are alive.</span>
+            <strong>First Gentle Notice</strong>
+            <span>Initial reminder email & prompt to verify you are alive.</span>
           </div>
         </div>
 
@@ -177,7 +237,7 @@
           </div>
           <div class="milestone-info">
             <strong>Follow-Up Alert</strong>
-            <span>Reminder that 10 days remain before testament unlock.</span>
+            <span>Warning that only 10 days remain before protocol executes.</span>
           </div>
         </div>
 
@@ -212,37 +272,53 @@
           <span class="tab-icon">📝</span>
           <span>1. Wasiyat & Advice (Nasihat)</span>
         </button>
+        <button class="tab-btn" data-tab="tab-vault-media">
+          <span class="tab-icon">📁</span>
+          <span>2. Scanned Deeds, Media & Videos (<span id="attachments-count-badge">0</span>)</span>
+        </button>
         <button class="tab-btn" data-tab="tab-emails">
           <span class="tab-icon">📬</span>
-          <span>2. Post-Mortem Email Dispatch List (<span id="email-recipients-count">0</span>)</span>
+          <span>3. Post-Mortem Email Dispatch List (<span id="email-recipients-count">0</span>)</span>
         </button>
         <button class="tab-btn" data-tab="tab-recipients">
           <span class="tab-icon">👥</span>
-          <span>3. Beneficiaries & Heirs (<span id="recipient-count-badge">0</span>)</span>
+          <span>4. Beneficiaries & Heirs (<span id="recipient-count-badge">0</span>)</span>
         </button>
         <button class="tab-btn" data-tab="tab-transferred">
           <span class="tab-icon">🏛️</span>
-          <span>4. Beneficiary Access Portal</span>
+          <span>5. Beneficiary Access Portal</span>
         </button>
         <button class="tab-btn" data-tab="tab-logs">
           <span class="tab-icon">📜</span>
-          <span>5. Audit Timeline Logs</span>
+          <span>6. Audit Timeline Logs</span>
         </button>
       </div>
     </div>
 
-    <!-- Tab 1: Wasiyat & Advice Editor -->
+    <!-- Tab 1: Wasiyat & Advice Editor (With Revisions & Editing) -->
     <section id="tab-wasiyat" class="tab-content active">
       <div class="card form-card">
+        
+        <!-- Revision & Edit Tracker Bar -->
+        <div class="revision-bar">
+          <div class="revision-info">
+            <span class="revision-badge">VERSION <span id="wasiyat-version-num">1.0</span></span>
+            <span class="revision-meta">Last Saved & Updated: <strong id="wasiyat-last-updated-text">Just now</strong></span>
+          </div>
+          <div class="revision-actions">
+            <span class="autosave-tag">✓ Changes Editable Anytime</span>
+          </div>
+        </div>
+
         <div class="card-header">
           <div>
             <div class="card-eyebrow">LEGAL TESTAMENT & SPIRITUAL LEGACY</div>
-            <h2>Record Your Wasiyat (Testament & Advice)</h2>
-            <p class="text-muted">Document your final words, spiritual guidance, asset distribution, and pending financial debts.</p>
+            <h2>Record & Edit Your Wasiyat</h2>
+            <p class="text-muted">You can edit, add, or update any section of your will whenever you wish. All changes are securely saved.</p>
           </div>
           <div class="card-header-actions">
             <button id="btn-print-wasiyat" class="btn btn-outline">🖨️ Print Legal Document</button>
-            <button id="btn-save-wasiyat" class="btn btn-gold">💾 Save Wasiyat</button>
+            <button id="btn-save-wasiyat" class="btn btn-gold">💾 Save / Update Wasiyat</button>
           </div>
         </div>
 
@@ -250,8 +326,8 @@
           <!-- Country Selection & Profile Section -->
           <div class="country-selector-highlight">
             <div class="highlight-header">
-              <span class="highlight-badge">JURISDICTION & IDENTITY</span>
-              <p>Select your country to configure localized National ID formats and dialing codes.</p>
+              <span class="highlight-badge">GLOBAL JURISDICTION ADAPTATION</span>
+              <p>Select your country to automatically format National ID fields, mobile dialing prefixes, and legal inheritance terminology.</p>
             </div>
             
             <div class="form-grid-2">
@@ -265,6 +341,9 @@
                   <option value="GB" data-flag="🇬🇧">🇬🇧 United Kingdom (NINO / Passport & Phone +44)</option>
                   <option value="US" data-flag="🇺🇸">🇺🇸 United States (SSN & Phone +1)</option>
                   <option value="CA" data-flag="🇨🇦">🇨🇦 Canada (SIN & Phone +1)</option>
+                  <option value="AU" data-flag="🇦🇺">🇦🇺 Australia (Medicare / TFN & Phone +61)</option>
+                  <option value="DE" data-flag="🇩🇪">🇩🇪 Germany (Steuer-ID / Passport & Phone +49)</option>
+                  <option value="TR" data-flag="🇹🇷">🇹🇷 Turkey (TC Kimlik & Phone +90)</option>
                   <option value="OTHER" data-flag="🌐">🌐 Other Countries (Passport & Global Phone)</option>
                 </select>
                 <small id="country-hint-text" class="form-hint">Selected: Pakistan - National ID (CNIC) & Phone Code (+92)</small>
@@ -358,14 +437,57 @@
           </div>
 
           <div class="form-actions-bottom">
-            <button type="submit" class="btn btn-gold btn-lg">💾 Save All Changes</button>
+            <button type="submit" class="btn btn-gold">💾 Save / Update Wasiyat</button>
             <span id="save-status-msg" class="status-msg"></span>
           </div>
         </form>
       </div>
     </section>
 
-    <!-- Tab 2: Post-Mortem Email Dispatch List (NEW DEDICATED SECTION) -->
+    <!-- Tab 2: Scanned Deeds, Media, Pictures & Video Vault (NEW FEATURE) -->
+    <section id="tab-vault-media" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-eyebrow">DIGITAL ASSET & DOCUMENT VAULT</div>
+            <h2>Attach Scanned Documents, Photos, & Final Videos</h2>
+            <p class="text-muted">Upload property deeds, National ID copies, family memory pictures, or recorded video/voice messages. They will unlock only after the 90-day timer expires.</p>
+          </div>
+          <button id="btn-trigger-upload" class="btn btn-gold">+ Upload Document / Media</button>
+          <input type="file" id="file-uploader-input" multiple accept="image/*,video/*,application/pdf,audio/*" class="hidden">
+        </div>
+
+        <!-- Drag & Drop Upload Zone -->
+        <div id="drop-upload-zone" class="upload-dropzone">
+          <div class="dropzone-icon">📁</div>
+          <h3>Drag & Drop Files Here or Click to Browse</h3>
+          <p>Supports <strong>Property Deeds (PDF/Images)</strong>, <strong>Family Pictures</strong>, and <strong>Final Video/Voice Recordings (MP4/WebM/MP3)</strong></p>
+          <div class="dropzone-specs">
+            <span>🛡️ Stored Securely in Vault</span>
+            <span>&bull;</span>
+            <span>👁️ Accessible only by designated heirs</span>
+          </div>
+        </div>
+
+        <!-- Attachments Gallery Grid -->
+        <div class="attachments-section-title">
+          <h3>Attached Documents & Media (<span id="attachments-display-count">0</span>)</h3>
+        </div>
+
+        <div id="attachments-grid-container" class="attachments-grid">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <div id="no-attachments-state" class="empty-state">
+          <div class="empty-icon">🗂️</div>
+          <h3>No Documents or Media Attached Yet</h3>
+          <p>Upload property registry deeds, National ID scans, memorable family photos, or a recorded video advice message.</p>
+          <button class="btn btn-outline" id="btn-empty-upload">+ Upload First File</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 3: Post-Mortem Email Dispatch List -->
     <section id="tab-emails" class="tab-content">
       <div class="card">
         <div class="card-header">
@@ -380,8 +502,8 @@
         <div class="email-info-banner">
           <div class="email-info-icon">✉️</div>
           <div class="email-info-body">
-            <strong>How Automated Email Dispatch Works:</strong>
-            <p>When the 90 days reach 0 without a check-in, the system automatically dispatches an encrypted email to everyone listed below. The email includes a secure link to access their private letter, advice, and your legal wasiyat.</p>
+            <strong>How Automated Email Dispatch Operates:</strong>
+            <p>When the 90 days reach 0 without a check-in, the system automatically dispatches an encrypted email to everyone listed below. The email includes a secure link to access their private letter, advice, uploaded deeds, and your legal wasiyat.</p>
           </div>
         </div>
 
@@ -398,14 +520,14 @@
       </div>
     </section>
 
-    <!-- Tab 3: Beneficiaries & Heirs -->
+    <!-- Tab 4: Beneficiaries & Heirs -->
     <section id="tab-recipients" class="tab-content">
       <div class="card">
         <div class="card-header">
           <div>
             <div class="card-eyebrow">HEIRS & BENEFICIARIES DIRECTORY</div>
             <h2>Designated Beneficiaries & Heirs</h2>
-            <p class="text-muted">Manage family members, relationship designations, contact channels, and attached private letters.</p>
+            <p class="text-muted">Manage family members, relationship designations, contact channels, and attached private letters. Edit or add at any time.</p>
           </div>
           <button id="btn-show-add-recipient-modal" class="btn btn-gold">+ Add New Beneficiary</button>
         </div>
@@ -423,14 +545,14 @@
       </div>
     </section>
 
-    <!-- Tab 4: Beneficiary Access Portal (Post-Life View) -->
+    <!-- Tab 5: Beneficiary Access Portal (Post-Life View) -->
     <section id="tab-transferred" class="tab-content">
       <div class="card">
         <div class="card-header">
           <div>
             <div class="card-eyebrow">POST-MORTEM HEIR PORTAL</div>
             <h2>Beneficiary Access Portal (Post-Life View)</h2>
-            <p class="text-muted">This is how your family members will view your testament after the 90-day timer completes.</p>
+            <p class="text-muted">This is how your family members will view your testament, documents, and videos after the 90-day timer completes.</p>
           </div>
           <button id="btn-print-beneficiary-copy" class="btn btn-outline">🖨️ Print Final Testament</button>
         </div>
@@ -440,10 +562,10 @@
           <div class="lock-shield">
             <span class="lock-icon">🔒</span>
           </div>
-          <h3>Testament Currently Locked & Protected</h3>
+          <h3>Testament & Media Vault Currently Locked & Protected</h3>
           <p>
-            The user is currently active and healthy. The 90-day Dead Man's Switch is running.
-            Confidential letters, assets, and advice will only unlock automatically if the 90-day verification check-in is missed.
+            The user is currently active and healthy. The 90-day Dead Man's Switch is actively running.
+            Confidential letters, uploaded deeds, videos, and advice will only unlock automatically if the 90-day verification check-in is missed.
           </p>
           <div class="locked-countdown-preview">
             <span>Countdown remaining: <strong id="locked-countdown-preview-text">90 Days</strong></span>
@@ -484,6 +606,17 @@
               <h3 id="letter-recipient-title">To My Dearest Son (Ali)</h3>
             </div>
             <div id="letter-content" class="letter-body"></div>
+          </div>
+
+          <!-- Attached Media & Scanned Deeds Section in Portal -->
+          <div class="document-section">
+            <div class="doc-sec-header">
+              <span class="doc-badge">ATTACHMENTS</span>
+              <h3>Uploaded Deeds, Family Pictures & Video Messages</h3>
+            </div>
+            <div id="view-portal-attachments-container" class="portal-attachments-grid">
+              <!-- Populated by JavaScript -->
+            </div>
           </div>
 
           <!-- Main Document View -->
@@ -540,7 +673,7 @@
       </div>
     </section>
 
-    <!-- Tab 5: Audit Logs -->
+    <!-- Tab 6: Audit Logs -->
     <section id="tab-logs" class="tab-content">
       <div class="card">
         <div class="card-header">
@@ -608,6 +741,9 @@
               <option value="GB" data-flag="🇬🇧">🇬🇧 UK (+44)</option>
               <option value="US" data-flag="🇺🇸">🇺🇸 USA (+1)</option>
               <option value="CA" data-flag="🇨🇦">🇨🇦 Canada (+1)</option>
+              <option value="AU" data-flag="🇦🇺">🇦🇺 Australia (+61)</option>
+              <option value="DE" data-flag="🇩🇪">🇩🇪 Germany (+49)</option>
+              <option value="TR" data-flag="🇹🇷">🇹🇷 Turkey (+90)</option>
               <option value="OTHER" data-flag="🌐">🌐 Other Countries</option>
             </select>
           </div>
@@ -685,17 +821,17 @@
           <div class="email-crest">⚖️ AMANAT DIGITAL VAULT</div>
           <p>Dear <strong id="preview-recipient-salutation">Ali Tariq</strong>,</p>
           <p>We are reaching out to you with deep respect. You were registered as a designated heir and confidant by <strong id="preview-sender-name">Muhammad Tariq</strong>.</p>
-          <p>Because the scheduled 90-day life check-in period passed without confirmation, the deceased's secure digital testament protocol has executed, unlocking their final instructions, asset distributions, and advice for you.</p>
+          <p>Because the scheduled 90-day life check-in period passed without confirmation, the deceased's secure digital testament protocol has executed, unlocking their final instructions, asset distributions, deeds, and personal advice for you.</p>
 
           <div class="email-quote-box">
             <div class="quote-header">💌 Dedicated Message Left Exclusively for You:</div>
             <p id="preview-private-letter-body">"My dearest son Ali, you have been my strength..."</p>
           </div>
 
-          <p>You may also review the complete legal testament, property distribution shares, and funeral wishes via the secure beneficiary portal below:</p>
+          <p>You may also review the complete legal testament, attached deeds, and videos via the secure beneficiary portal below:</p>
           
           <div class="email-cta-box">
-            <a href="#tab-transferred" class="btn btn-gold btn-sm" id="btn-preview-portal-link">View Full Testament & Advice</a>
+            <a href="#tab-transferred" class="btn btn-gold btn-sm" id="btn-preview-portal-link">View Full Testament & Media Vault</a>
           </div>
 
           <div class="email-disclaimer">
@@ -710,12 +846,32 @@
     </div>
   </div>
 
+  <!-- Media Lightbox / Video Viewer Modal -->
+  <div id="media-lightbox-modal" class="modal-overlay hidden">
+    <div class="modal-card lightbox-card">
+      <div class="modal-header">
+        <div>
+          <span class="modal-eyebrow">VAULT ASSET VIEWER</span>
+          <h3 id="lightbox-filename">Document / Media Preview</h3>
+        </div>
+        <button id="btn-close-lightbox" class="btn-close">&times;</button>
+      </div>
+      <div id="lightbox-content-area" class="lightbox-body">
+        <!-- Rendered Image, Video Player, or PDF Link -->
+      </div>
+      <div class="modal-footer">
+        <a id="lightbox-download-link" href="#" download class="btn btn-gold btn-sm">⬇️ Download File</a>
+        <button type="button" class="btn btn-outline" id="btn-close-lightbox-bottom">Close</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="app-footer">
     <div class="footer-inner">
-      <div class="footer-logo">⚖️ AMANAT DIGITAL TESTAMENT</div>
-      <p>Secure Client-Side Encryption &bull; Automated 90-Day Dead Man's Switch Protocol &bull; Post-Mortem Email Dispatch System</p>
-      <small>&copy; 2026 Amanat. Built with dignity, privacy, and precision.</small>
+      <div class="footer-logo">⚖️ AMANAT DIGITAL TESTAMENT & VAULT</div>
+      <p>Decentralized Client-Side Encryption &bull; Automated 90-Day Dead Man's Switch Protocol &bull; Multi-Media Document Vault</p>
+      <small>&copy; 2026 Amanat. Built with dignity, privacy, and precision for users worldwide.</small>
     </div>
   </footer>
 

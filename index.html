@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amanat - Digital Will & Post-Mortem Automated Dispatch</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Sticky Milestone Reminder Alert Banner (Dynamic: 15, 10, 5, 1 Day) -->
+  <div id="milestone-reminder-banner" class="milestone-reminder hidden">
+    <div class="reminder-content">
+      <div id="reminder-icon" class="reminder-icon">⚠️</div>
+      <div class="reminder-text">
+        <strong id="reminder-title">Life Verification Reminder!</strong>
+        <p id="reminder-message">You have 15 days remaining before your Wasiyat is automatically transferred.</p>
+      </div>
+    </div>
+    <div class="reminder-actions">
+      <button id="btn-reminder-extend" class="btn btn-gold btn-sm">✋ I Am Alive (+90 Days)</button>
+      <button id="btn-dismiss-reminder" class="btn btn-ghost btn-sm">Dismiss</button>
+    </div>
+  </div>
+
+  <!-- Top Navigation -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="logo-area">
+        <div class="logo-shield">
+          <span class="shield-icon">⚖️</span>
+        </div>
+        <div>
+          <div class="logo-brand-row">
+            <h1 class="logo-title">AMANAT</h1>
+            <span class="badge-gold">Digital Testament & Vault</span>
+          </div>
+          <p class="logo-subtitle">Secure 90-Day Dead Man's Switch & Automated Post-Mortem Dispatch</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div id="system-status-pill" class="status-pill status-active">
+          <span class="status-dot"></span>
+          <span id="system-status-text">Status: Monitored & Protected</span>
+        </div>
+        <button id="btn-quick-checkin" class="btn btn-glow-gold">
+          <span>✋ I Am Alive (+90 Days)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-container">
+    
+    <!-- Dead Man's Switch Hero Countdown -->
+    <section class="switch-banner">
+      <div class="banner-pattern-overlay"></div>
+      <div class="banner-content">
+        <div class="banner-left">
+          <div class="banner-tag">
+            <span class="tag-sparkle">✦</span> 90-DAY AUTOMATED POST-MORTEM PROTOCOL
+          </div>
+          <h2 id="banner-headline">Life Verification Engine</h2>
+          <p id="banner-description">
+            If you do not check in before this countdown concludes, the protocol will conclude that you have passed away. 
+            Your recorded <strong>Wasiyat (Will)</strong>, <strong>Nasihat (Advice)</strong>, and confidential private letters will be automatically unlocked and dispatched via email to your selected recipients.
+          </p>
+
+          <div class="timer-display">
+            <div class="time-card">
+              <span id="days-val" class="time-digit">90</span>
+              <span class="time-label">Days</span>
+            </div>
+            <div class="time-sep">:</div>
+            <div class="time-card">
+              <span id="hours-val" class="time-digit">00</span>
+              <span class="time-label">Hours</span>
+            </div>
+            <div class="time-sep">:</div>
+            <div class="time-card">
+              <span id="minutes-val" class="time-digit">00</span>
+              <span class="time-label">Minutes</span>
+            </div>
+            <div class="time-sep">:</div>
+            <div class="time-card">
+              <span id="seconds-val" class="time-digit">00</span>
+              <span class="time-label">Seconds</span>
+            </div>
+          </div>
+
+          <div class="countdown-subtext">
+            <span>Next mandatory verification due by: <strong id="deadline-date-text">Calculating...</strong></span>
+          </div>
+        </div>
+
+        <div class="banner-right">
+          <div class="switch-action-card">
+            <div class="card-glow-edge"></div>
+            <div class="switch-card-header">
+              <span class="switch-card-icon">⚡</span>
+              <div>
+                <h3>Verify Life Status</h3>
+                <small>One-click 90-day extension</small>
+              </div>
+            </div>
+            <p>Click below to verify that you are alive and healthy. This immediately extends your countdown by a fresh <strong>90 days</strong>.</p>
+            <button id="btn-checkin-large" class="btn btn-emerald btn-block btn-lg">
+              ✨ Extend Life Timer (+90 Days)
+            </button>
+
+            <div class="quick-test-box">
+              <div class="test-header">
+                <span class="test-label">🧪 Interactive Simulator & Demo:</span>
+              </div>
+              <div class="test-btn-group">
+                <button id="btn-sim-15d" class="btn btn-pill-ghost btn-xs">15 Days</button>
+                <button id="btn-sim-10d" class="btn btn-pill-ghost btn-xs">10 Days</button>
+                <button id="btn-sim-5d" class="btn btn-pill-ghost btn-xs">5 Days</button>
+                <button id="btn-sim-1d" class="btn btn-pill-ghost btn-xs">1 Day</button>
+                <button id="btn-sim-10s" class="btn btn-pill-ghost btn-xs">10 Secs</button>
+                <button id="btn-trigger-expire" class="btn btn-pill-danger btn-xs">Trigger Expiry</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Triggered Alert Notification (Shown when 90 days expire) -->
+    <div id="transfer-alert-box" class="transfer-alert hidden">
+      <div class="alert-icon-ring">
+        <span class="alert-icon">⚠️</span>
+      </div>
+      <div class="alert-info">
+        <h3>TESTAMENT UNLOCKED & EMAILS DISPATCHED</h3>
+        <p>The 90-day check-in period expired. All confidential notifications have been queued and sent to your designated post-mortem email recipients.</p>
+      </div>
+      <button id="btn-view-transferred" class="btn btn-gold btn-sm">Open Beneficiary Portal</button>
+    </div>
+
+    <!-- Automated Reminder Milestones Schedule -->
+    <section class="reminder-schedule-card">
+      <div class="schedule-header">
+        <div class="schedule-title">
+          <span class="schedule-icon">🔔</span>
+          <div>
+            <h3>Automated Reminder Milestones & Alerts</h3>
+            <p class="text-muted">Multi-stage notifications dispatched to you before the testament is transferred to heirs:</p>
+          </div>
+        </div>
+        <button id="btn-enable-browser-notifications" class="btn btn-outline btn-sm">
+          🔔 Enable Desktop / Browser Notifications
+        </button>
+      </div>
+
+      <div class="milestones-grid">
+        <div id="milestone-card-15" class="milestone-box">
+          <div class="milestone-top">
+            <span class="milestone-days">15 Days Left</span>
+            <div id="badge-milestone-15" class="milestone-status status-pending">Scheduled</div>
+          </div>
+          <div class="milestone-info">
+            <strong>First Gentle Checkpoint</strong>
+            <span>Initial warning email & notice to verify you are alive.</span>
+          </div>
+        </div>
+
+        <div id="milestone-card-10" class="milestone-box">
+          <div class="milestone-top">
+            <span class="milestone-days">10 Days Left</span>
+            <div id="badge-milestone-10" class="milestone-status status-pending">Scheduled</div>
+          </div>
+          <div class="milestone-info">
+            <strong>Follow-Up Alert</strong>
+            <span>Reminder that 10 days remain before testament unlock.</span>
+          </div>
+        </div>
+
+        <div id="milestone-card-5" class="milestone-box">
+          <div class="milestone-top">
+            <span class="milestone-days">5 Days Left</span>
+            <div id="badge-milestone-5" class="milestone-status status-pending">Scheduled</div>
+          </div>
+          <div class="milestone-info">
+            <strong>Urgent Countdown</strong>
+            <span>Urgent alert: Life check-in required within 5 days.</span>
+          </div>
+        </div>
+
+        <div id="milestone-card-1" class="milestone-box milestone-critical">
+          <div class="milestone-top">
+            <span class="milestone-days">1 Day Left</span>
+            <div id="badge-milestone-1" class="milestone-status status-pending">Scheduled</div>
+          </div>
+          <div class="milestone-info">
+            <strong>Final 24-Hour Notice</strong>
+            <span>Transfer executes tomorrow morning if unextended.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <div class="tabs-nav-wrapper">
+      <div class="tabs-nav">
+        <button class="tab-btn active" data-tab="tab-wasiyat">
+          <span class="tab-icon">📝</span>
+          <span>1. Wasiyat & Advice (Nasihat)</span>
+        </button>
+        <button class="tab-btn" data-tab="tab-emails">
+          <span class="tab-icon">📬</span>
+          <span>2. Post-Mortem Email Dispatch List (<span id="email-recipients-count">0</span>)</span>
+        </button>
+        <button class="tab-btn" data-tab="tab-recipients">
+          <span class="tab-icon">👥</span>
+          <span>3. Beneficiaries & Heirs (<span id="recipient-count-badge">0</span>)</span>
+        </button>
+        <button class="tab-btn" data-tab="tab-transferred">
+          <span class="tab-icon">🏛️</span>
+          <span>4. Beneficiary Access Portal</span>
+        </button>
+        <button class="tab-btn" data-tab="tab-logs">
+          <span class="tab-icon">📜</span>
+          <span>5. Audit Timeline Logs</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Tab 1: Wasiyat & Advice Editor -->
+    <section id="tab-wasiyat" class="tab-content active">
+      <div class="card form-card">
+        <div class="card-header">
+          <div>
+            <div class="card-eyebrow">LEGAL TESTAMENT & SPIRITUAL LEGACY</div>
+            <h2>Record Your Wasiyat (Testament & Advice)</h2>
+            <p class="text-muted">Document your final words, spiritual guidance, asset distribution, and pending financial debts.</p>
+          </div>
+          <div class="card-header-actions">
+            <button id="btn-print-wasiyat" class="btn btn-outline">🖨️ Print Legal Document</button>
+            <button id="btn-save-wasiyat" class="btn btn-gold">💾 Save Wasiyat</button>
+          </div>
+        </div>
+
+        <form id="wasiyat-form">
+          <!-- Country Selection & Profile Section -->
+          <div class="country-selector-highlight">
+            <div class="highlight-header">
+              <span class="highlight-badge">JURISDICTION & IDENTITY</span>
+              <p>Select your country to configure localized National ID formats and dialing codes.</p>
+            </div>
+            
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label for="user-country">🌍 Select Your Country (Jurisdiction) *</label>
+                <select id="user-country" class="country-dropdown" required>
+                  <option value="PK" data-flag="🇵🇰">🇵🇰 Pakistan (CNIC & Phone +92)</option>
+                  <option value="AE" data-flag="🇦🇪">🇦🇪 United Arab Emirates (Emirates ID & Phone +971)</option>
+                  <option value="SA" data-flag="🇸🇦">🇸🇦 Saudi Arabia (National ID / Iqama & Phone +966)</option>
+                  <option value="IN" data-flag="🇮🇳">🇮🇳 India (Aadhaar Card & Phone +91)</option>
+                  <option value="GB" data-flag="🇬🇧">🇬🇧 United Kingdom (NINO / Passport & Phone +44)</option>
+                  <option value="US" data-flag="🇺🇸">🇺🇸 United States (SSN & Phone +1)</option>
+                  <option value="CA" data-flag="🇨🇦">🇨🇦 Canada (SIN & Phone +1)</option>
+                  <option value="OTHER" data-flag="🌐">🌐 Other Countries (Passport & Global Phone)</option>
+                </select>
+                <small id="country-hint-text" class="form-hint">Selected: Pakistan - National ID (CNIC) & Phone Code (+92)</small>
+              </div>
+
+              <div class="form-group">
+                <label for="user-full-name">Your Full Legal Name *</label>
+                <input type="text" id="user-full-name" placeholder="e.g., Muhammad Tariq" required>
+              </div>
+            </div>
+
+            <!-- Dynamic Country-Adaptive National ID & Phone Inputs -->
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label id="user-id-label" for="user-id-number">National ID (CNIC - 13 Digits) *</label>
+                <div class="input-with-icon">
+                  <span id="user-id-icon" class="input-badge-icon">🪪</span>
+                  <input type="text" id="user-id-number" placeholder="42101-1234567-1" maxlength="25" required>
+                </div>
+                <small id="user-id-help" class="form-hint">Format: 5 digits - 7 digits - 1 digit (e.g., 42101-1234567-1)</small>
+              </div>
+
+              <div class="form-group">
+                <label id="user-phone-label" for="user-phone-number">Mobile / WhatsApp Number *</label>
+                <div class="input-with-prefix">
+                  <span id="user-phone-dialcode" class="dial-prefix">+92</span>
+                  <input type="tel" id="user-phone-number" placeholder="300 1234567" required>
+                </div>
+                <small id="user-phone-help" class="form-hint">Pakistan mobile number (e.g., 300 1234567)</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section: Spiritual Advice / Nasihat -->
+          <div class="form-section-title">
+            <span class="section-num">01</span>
+            <div>
+              <strong>Final Advice & Nasihat to Family</strong>
+              <small>Words of wisdom, faith, unity, and moral guidance</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="general-nasihat">Spiritual Advice, Ethical Guidance, and Requests to your Children & Family:</label>
+            <textarea id="general-nasihat" rows="4" placeholder="My dear family, stay united, look after each other, hold onto good values and faith. Forgive each other's mistakes and remember me in your good prayers..."></textarea>
+          </div>
+
+          <!-- Section: Assets & Wealth Distribution -->
+          <div class="form-section-title">
+            <span class="section-num">02</span>
+            <div>
+              <strong>Property & Asset Distribution (Wasiyat)</strong>
+              <small>Houses, land, businesses, bank accounts, and inheritance distribution instructions</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="assets-statement">Details of Properties, Bank Accounts, Businesses & Distribution Instructions:</label>
+            <textarea id="assets-statement" rows="4" placeholder="1. House # 12, Gulshan: To be distributed according to Islamic inheritance/legal shares among spouse and children.
+2. Savings Account at HBL (Acc # 0123...): Settle any funeral costs first, give 10% in charity (Sadaqah Jariyah), and divide the remainder..."></textarea>
+          </div>
+
+          <!-- Section: Debts & Liabilities -->
+          <div class="form-section-title">
+            <span class="section-num">03</span>
+            <div>
+              <strong>Debts & Financial Obligations (Qarz-e-Hasana)</strong>
+              <small>Clear pending liabilities before inheritance division</small>
+            </div>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="debts-payable">Debts I Owe (To be paid immediately before distribution):</label>
+              <textarea id="debts-payable" rows="3" placeholder="e.g., Rs. 50,000 owed to Uncle Ahmad. Pay from my immediate savings."></textarea>
+            </div>
+            <div class="form-group">
+              <label for="debts-receivable">Money Owed to Me by Others:</label>
+              <textarea id="debts-receivable" rows="3" placeholder="e.g., Rs. 100,000 given as loan to Tariq bhai. Kindly collect politely."></textarea>
+            </div>
+          </div>
+
+          <!-- Section: Funeral Wishes -->
+          <div class="form-section-title">
+            <span class="section-num">04</span>
+            <div>
+              <strong>Funeral & Burial Instructions</strong>
+              <small>Simplicity, burial location, Janaza prayers, and charitable donations</small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="funeral-wishes">Final Wishes regarding Janaza, Burial Location, and Simplicity:</label>
+            <textarea id="funeral-wishes" rows="2" placeholder="Keep my funeral simple, avoid extravagant spendings, and bury me in the ancestral graveyard..."></textarea>
+          </div>
+
+          <div class="form-actions-bottom">
+            <button type="submit" class="btn btn-gold btn-lg">💾 Save All Changes</button>
+            <span id="save-status-msg" class="status-msg"></span>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Tab 2: Post-Mortem Email Dispatch List (NEW DEDICATED SECTION) -->
+    <section id="tab-emails" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-eyebrow">AUTOMATED POST-MORTEM OUTBOX</div>
+            <h2>Post-Mortem Email Dispatch Roster</h2>
+            <p class="text-muted">These are the verified people who will receive an automated email notification the moment your 90-day timer expires.</p>
+          </div>
+          <button class="btn btn-gold btn-open-modal">+ Add Email Recipient</button>
+        </div>
+
+        <div class="email-info-banner">
+          <div class="email-info-icon">✉️</div>
+          <div class="email-info-body">
+            <strong>How Automated Email Dispatch Works:</strong>
+            <p>When the 90 days reach 0 without a check-in, the system automatically dispatches an encrypted email to everyone listed below. The email includes a secure link to access their private letter, advice, and your legal wasiyat.</p>
+          </div>
+        </div>
+
+        <div id="email-recipients-container" class="email-cards-grid">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <div id="no-email-recipients-state" class="empty-state hidden">
+          <div class="empty-icon">📫</div>
+          <h3>No Email Recipients Configured Yet</h3>
+          <p>Specify who should receive an automated notification email after your death.</p>
+          <button class="btn btn-outline btn-open-modal">+ Add First Email Recipient</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 3: Beneficiaries & Heirs -->
+    <section id="tab-recipients" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-eyebrow">HEIRS & BENEFICIARIES DIRECTORY</div>
+            <h2>Designated Beneficiaries & Heirs</h2>
+            <p class="text-muted">Manage family members, relationship designations, contact channels, and attached private letters.</p>
+          </div>
+          <button id="btn-show-add-recipient-modal" class="btn btn-gold">+ Add New Beneficiary</button>
+        </div>
+
+        <div id="recipients-list-container" class="recipients-grid">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <div id="no-recipients-state" class="empty-state hidden">
+          <div class="empty-icon">👥</div>
+          <h3>No Beneficiaries Added Yet</h3>
+          <p>Add the family members or trusted friends who should receive your Wasiyat and personal advice if you pass away.</p>
+          <button class="btn btn-outline btn-open-modal">+ Add First Beneficiary</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 4: Beneficiary Access Portal (Post-Life View) -->
+    <section id="tab-transferred" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-eyebrow">POST-MORTEM HEIR PORTAL</div>
+            <h2>Beneficiary Access Portal (Post-Life View)</h2>
+            <p class="text-muted">This is how your family members will view your testament after the 90-day timer completes.</p>
+          </div>
+          <button id="btn-print-beneficiary-copy" class="btn btn-outline">🖨️ Print Final Testament</button>
+        </div>
+
+        <!-- If still alive (Locked State) -->
+        <div id="portal-locked-view" class="locked-box">
+          <div class="lock-shield">
+            <span class="lock-icon">🔒</span>
+          </div>
+          <h3>Testament Currently Locked & Protected</h3>
+          <p>
+            The user is currently active and healthy. The 90-day Dead Man's Switch is running.
+            Confidential letters, assets, and advice will only unlock automatically if the 90-day verification check-in is missed.
+          </p>
+          <div class="locked-countdown-preview">
+            <span>Countdown remaining: <strong id="locked-countdown-preview-text">90 Days</strong></span>
+          </div>
+          <button id="btn-simulate-unlock" class="btn btn-pill-gold">Preview Unlocked Heir View</button>
+        </div>
+
+        <!-- Unlocked View -->
+        <div id="portal-unlocked-view" class="unlocked-view hidden">
+          <div class="deceased-header-banner">
+            <div class="banner-crest">📜</div>
+            <div class="deceased-title-area">
+              <div class="tag-released">CONFIDENTIAL TESTAMENT RELEASED</div>
+              <h2 id="view-user-name">Muhammad Tariq's Last Will & Final Advice</h2>
+              <div class="deceased-meta-row">
+                <span>Country: <strong id="view-user-country">Pakistan 🇵🇰</strong></span>
+                <span>&bull;</span>
+                <span><span id="view-user-id-label">CNIC / ID Record:</span> <strong id="view-user-id">42101-1234567-1</strong></span>
+                <span>&bull;</span>
+                <span>Contact: <strong id="view-user-phone">+92 300 1234567</strong></span>
+              </div>
+              <p class="release-timestamp">Automatic release timestamp: <span id="view-release-date">--</span></p>
+            </div>
+          </div>
+
+          <!-- Recipient Selector Filter -->
+          <div class="recipient-filter-bar">
+            <label for="select-beneficiary-filter">Viewing Testament for Recipient:</label>
+            <select id="select-beneficiary-filter">
+              <option value="all">Entire Family (General Wasiyat & Advice)</option>
+            </select>
+          </div>
+
+          <!-- Private Message Display -->
+          <div id="private-letter-card" class="card letter-card hidden">
+            <div class="letter-header">
+              <span class="letter-tag">💌 CONFIDENTIAL PRIVATE LETTER</span>
+              <h3 id="letter-recipient-title">To My Dearest Son (Ali)</h3>
+            </div>
+            <div id="letter-content" class="letter-body"></div>
+          </div>
+
+          <!-- Main Document View -->
+          <div class="document-section">
+            <div class="doc-sec-header">
+              <span class="doc-badge">01</span>
+              <h3>Words of Advice & Nasihat</h3>
+            </div>
+            <div id="view-nasihat-text" class="document-block"></div>
+          </div>
+
+          <div class="document-section">
+            <div class="doc-sec-header">
+              <span class="doc-badge">02</span>
+              <h3>Property & Asset Distribution</h3>
+            </div>
+            <div id="view-assets-text" class="document-block"></div>
+          </div>
+
+          <div class="document-grid-2">
+            <div class="document-section">
+              <div class="doc-sec-header">
+                <span class="doc-badge">03A</span>
+                <h3>Debts to be Paid</h3>
+              </div>
+              <div id="view-debts-payable-text" class="document-block"></div>
+            </div>
+            <div class="document-section">
+              <div class="doc-sec-header">
+                <span class="doc-badge">03B</span>
+                <h3>Receivables to Collect</h3>
+              </div>
+              <div id="view-debts-receivable-text" class="document-block"></div>
+            </div>
+          </div>
+
+          <div class="document-section">
+            <div class="doc-sec-header">
+              <span class="doc-badge">04</span>
+              <h3>Funeral & Final Instructions</h3>
+            </div>
+            <div id="view-funeral-text" class="document-block"></div>
+          </div>
+
+          <!-- Beneficiaries Summary Table -->
+          <div class="document-section">
+            <div class="doc-sec-header">
+              <span class="doc-badge">05</span>
+              <h3>Designated Heirs & Contact Roster</h3>
+            </div>
+            <div id="view-heirs-table-container"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 5: Audit Logs -->
+    <section id="tab-logs" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-eyebrow">SECURITY AUDIT & TIMELINE</div>
+            <h2>Check-In & Automated Email Dispatch History</h2>
+            <p class="text-muted">Complete timeline of every life verification, 90-day extension, milestone alert, and simulated email dispatched.</p>
+          </div>
+          <button id="btn-clear-logs" class="btn btn-ghost btn-sm">Clear History</button>
+        </div>
+
+        <div class="timeline" id="audit-timeline">
+          <!-- Filled by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Add/Edit Beneficiary Modal -->
+  <div id="recipient-modal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <span class="modal-eyebrow">HEIR & EMAIL REGISTRATION</span>
+          <h3 id="modal-title">Add Beneficiary / Heir</h3>
+        </div>
+        <button id="btn-close-modal" class="btn-close">&times;</button>
+      </div>
+
+      <form id="recipient-form">
+        <input type="hidden" id="recipient-edit-id" value="">
+        
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="recipient-name">Full Name *</label>
+            <input type="text" id="recipient-name" placeholder="e.g., Ali Tariq" required>
+          </div>
+          <div class="form-group">
+            <label for="recipient-relation">Relationship *</label>
+            <select id="recipient-relation" required>
+              <option value="">Select relationship</option>
+              <option value="Spouse (Wife/Husband)">Spouse (Wife/Husband)</option>
+              <option value="Son">Son</option>
+              <option value="Daughter">Daughter</option>
+              <option value="Father">Father</option>
+              <option value="Mother">Mother</option>
+              <option value="Brother">Brother</option>
+              <option value="Sister">Sister</option>
+              <option value="Trusted Friend">Trusted Friend</option>
+              <option value="Legal Lawyer/Executor">Legal Lawyer / Executor</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="recipient-country">Beneficiary Country *</label>
+            <select id="recipient-country" class="country-dropdown">
+              <option value="PK" data-flag="🇵🇰">🇵🇰 Pakistan (+92)</option>
+              <option value="AE" data-flag="🇦🇪">🇦🇪 UAE (+971)</option>
+              <option value="SA" data-flag="🇸🇦">🇸🇦 Saudi Arabia (+966)</option>
+              <option value="IN" data-flag="🇮🇳">🇮🇳 India (+91)</option>
+              <option value="GB" data-flag="🇬🇧">🇬🇧 UK (+44)</option>
+              <option value="US" data-flag="🇺🇸">🇺🇸 USA (+1)</option>
+              <option value="CA" data-flag="🇨🇦">🇨🇦 Canada (+1)</option>
+              <option value="OTHER" data-flag="🌐">🌐 Other Countries</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="recipient-email">Email Address (For Post-Mortem Delivery) *</label>
+            <input type="email" id="recipient-email" placeholder="ali@example.com" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="recipient-phone">Phone Number / WhatsApp</label>
+          <div class="input-with-prefix">
+            <span id="recipient-dialcode-prefix" class="dial-prefix">+92</span>
+            <input type="tel" id="recipient-phone" placeholder="300 1234567">
+          </div>
+        </div>
+
+        <!-- Post-Mortem Email Toggle Option -->
+        <div class="checkbox-box">
+          <label class="custom-checkbox-label">
+            <input type="checkbox" id="recipient-send-email" checked>
+            <span class="checkbox-custom"></span>
+            <div>
+              <strong>📧 Send Automated Email After Death</strong>
+              <p>Automatically send an email notification containing their access link and will details when 90 days expire without check-in.</p>
+            </div>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="recipient-private-letter">Personal Confidential Note / Special Advice (Only visible to this person):</label>
+          <textarea id="recipient-private-letter" rows="3" placeholder="My dear son, always respect your mother and prioritize your education. You have been a wonderful blessing in my life..."></textarea>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline btn-close-modal">Cancel</button>
+          <button type="submit" class="btn btn-gold">Save Beneficiary</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Simulated Email Preview Modal -->
+  <div id="email-preview-modal" class="modal-overlay hidden">
+    <div class="modal-card email-preview-card">
+      <div class="modal-header">
+        <div>
+          <span class="modal-eyebrow">SIMULATED AUTOMATED EMAIL DISPATCH</span>
+          <h3>Post-Mortem Email Preview</h3>
+        </div>
+        <button id="btn-close-email-preview" class="btn-close">&times;</button>
+      </div>
+
+      <div class="email-envelope-preview">
+        <div class="email-meta-header">
+          <div class="email-meta-row">
+            <span class="meta-label">From:</span>
+            <span class="meta-value"><strong>Amanat Testament Protocol</strong> &lt;notifications@amanat-vault.com&gt;</span>
+          </div>
+          <div class="email-meta-row">
+            <span class="meta-label">To:</span>
+            <span id="preview-email-to" class="meta-value">ali.tariq@example.com</span>
+          </div>
+          <div class="email-meta-row">
+            <span class="meta-label">Subject:</span>
+            <span id="preview-email-subject" class="meta-value subject-text">[Confidential] Final Wasiyat & Advice from Muhammad Tariq</span>
+          </div>
+          <div class="email-meta-row">
+            <span class="meta-label">Trigger Reason:</span>
+            <span class="meta-value status-badge-inline">90-Day Dead Man's Switch Expired Without Check-In</span>
+          </div>
+        </div>
+
+        <div class="email-letter-body">
+          <div class="email-crest">⚖️ AMANAT DIGITAL VAULT</div>
+          <p>Dear <strong id="preview-recipient-salutation">Ali Tariq</strong>,</p>
+          <p>We are reaching out to you with deep respect. You were registered as a designated heir and confidant by <strong id="preview-sender-name">Muhammad Tariq</strong>.</p>
+          <p>Because the scheduled 90-day life check-in period passed without confirmation, the deceased's secure digital testament protocol has executed, unlocking their final instructions, asset distributions, and advice for you.</p>
+
+          <div class="email-quote-box">
+            <div class="quote-header">💌 Dedicated Message Left Exclusively for You:</div>
+            <p id="preview-private-letter-body">"My dearest son Ali, you have been my strength..."</p>
+          </div>
+
+          <p>You may also review the complete legal testament, property distribution shares, and funeral wishes via the secure beneficiary portal below:</p>
+          
+          <div class="email-cta-box">
+            <a href="#tab-transferred" class="btn btn-gold btn-sm" id="btn-preview-portal-link">View Full Testament & Advice</a>
+          </div>
+
+          <div class="email-disclaimer">
+            This automated dispatch was scheduled by the user in accordance with their digital testament preferences. Amanat Vault 2026.
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" id="btn-close-email-preview-bottom">Close Preview</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">⚖️ AMANAT DIGITAL TESTAMENT</div>
+      <p>Secure Client-Side Encryption &bull; Automated 90-Day Dead Man's Switch Protocol &bull; Post-Mortem Email Dispatch System</p>
+      <small>&copy; 2026 Amanat. Built with dignity, privacy, and precision.</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
